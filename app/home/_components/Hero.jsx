@@ -32,7 +32,7 @@ const Hero = () => {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="images/bg.jpg"
+          src="images/bg2.jpg"
           alt="A healthcare professional using a laptop, signifying modern pharmaceutical services."
           className="object-cover object-top w-full h-full"
           onError={(e) => {
@@ -42,7 +42,7 @@ const Hero = () => {
           }}
         />
         <div
-          className="absolute inset-0 bg-gradient-to-t from-blue-900/90 to-blue-800/30"
+          className="absolute inset-0 bg-black/37 "
           aria-hidden="true"
         ></div>
       </div>
@@ -59,7 +59,7 @@ const Hero = () => {
             variants={itemVariants}
             className="text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl"
           >
-            Your Trusted Partner in Health and Wellness in Nairobi
+            Your Trusted Partner in Health and Wellness.
           </motion.h1>
 
           <motion.p
@@ -76,7 +76,7 @@ const Hero = () => {
             className="mt-10"
             whileTap={{ scale: 0.95 }}
           >
-            <button className="group flex items-center justify-center whitespace-nowrap px-8 py-4 font-bold text-white transition-all duration-300 ease-in-out bg-blue-600 rounded-full shadow-lg transform hover:-translate-y-1 hover:bg-blue-700 hover:shadow-xl hover:shadow-blue-500/30 focus:outline-none focus:ring-4 focus:ring-blue-400">
+            <button className="group flex items-center justify-center whitespace-nowrap px-8 py-4 font-bold text-white transition-all duration-300 ease-in-out bg-[#3b82f6] rounded-full shadow-lg transform hover:-translate-y-1 hover:bg-blue-600 hover:shadow-xl hover:shadow-blue-500/30 focus:outline-none focus:ring-4 focus:ring-blue-400">
               <span>Explore Our Services</span>
               <FiArrowRight className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
             </button>

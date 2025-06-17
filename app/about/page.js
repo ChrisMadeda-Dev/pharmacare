@@ -2,9 +2,9 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import CallToAction from "../components/CallToAction";
 
 // --- Inline SVG Icons ---
-// Using self-contained inline SVGs for icons to ensure component portability and avoid dependency issues.
 const StethoscopeIcon = (props) => (
   <svg
     stroke="currentColor"
@@ -59,15 +59,13 @@ const teamMembers = [
     name: "Grace Wanjiru",
     title: "Wellness Consultant",
     bio: "Grace specializes in holistic health and provides personalized wellness consultations.",
-    imageUrl:
-      "/images/t1.jpg",
+    imageUrl: "/images/t1.jpg",
   },
   {
     name: "Dr. John Mwangi",
     title: "Compounding Specialist",
     bio: "John is an expert in creating customized medications to meet specific patient needs.",
-    imageUrl:
-      "/images/t3.jpg",
+    imageUrl: "/images/t3.jpg",
   },
 ];
 
@@ -123,14 +121,14 @@ const About = () => {
   return (
     <div className="font-sans bg-white">
       {/* --- Header Section --- */}
-      <header className="py-20 text-center bg-slate-50">
+      <header className="py-20 text-center bg-[#005B96] ">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-bold tracking-tight text-[#005B96] sm:text-6xl"
+          className="text-4xl font-bold tracking-tight text-white sm:text-6xl"
         >
-          About PharmaCare
+          About Us
         </motion.h1>
       </header>
 
@@ -165,88 +163,90 @@ const About = () => {
               PharmaCare has grown from a small neighborhood pharmacy into a
               trusted health and wellness partner.
             </p>
-            <p className="mt-4 text-lg text-slate-600">
-              We believe that everyone deserves access to quality medications
-              and expert health advice. Our journey is one of commitment to this
-              belief, every single day.
-            </p>
           </motion.div>
         </div>
       </section>
 
-      {/* --- Meet Our Team Section --- */}
-      <section className="py-24 bg-slate-100">
+      {/* --- Meet Our Team Section (Redesigned) --- */}
+      <section className="py-24 bg-slate-50">
         <div className="max-w-6xl px-4 mx-auto text-center">
           <h2 className="text-3xl font-bold tracking-tight text-[#005B96] sm:text-4xl">
             Meet Our Professional Team
           </h2>
-          <p className="max-w-2xl mx-auto mt-4 text-lg text-slate-600">
-            The dedicated experts committed to your health and well-being.
-          </p>
+
           <motion.div
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.1 }}
             className="grid grid-cols-1 gap-8 mt-16 sm:grid-cols-2 lg:grid-cols-4"
           >
             {teamMembers.map((member) => (
               <motion.div
                 key={member.name}
                 variants={fadeIn}
-                className="p-6 text-center bg-white rounded-lg shadow-md"
+                className="overflow-hidden text-center bg-white rounded-lg shadow-lg group"
               >
-                <div className="w-32 h-32 mx-auto -mt-16 overflow-hidden border-4 border-white rounded-full shadow-lg">
+                <div className="h-64 overflow-hidden">
                   <img
                     src={member.imageUrl}
                     alt={member.name}
-                    className="object-cover object-top w-full h-full"
+                    className="object-cover object-top w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-110"
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src =
+                        "https://placehold.co/400x600/3b82f6/FFFFFF?text=Photo";
+                    }}
                   />
                 </div>
-                <h3 className="mt-4 text-xl font-semibold text-slate-800">
-                  {member.name}
-                </h3>
-                <p className="text-sm font-medium text-[#3b82f6]">
-                  {member.title}
-                </p>
-                <p className="mt-2 text-slate-500">{member.bio}</p>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-slate-800">
+                    {member.name}
+                  </h3>
+                  <p className="text-sm font-medium text-[#3b82f6]">
+                    {member.title}
+                  </p>
+                  <p className="mt-2 text-sm text-slate-500">{member.bio}</p>
+                </div>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
 
-      {/* --- Our Core Values Section --- */}
+      {/* --- Our Core Values Section (Redesigned) --- */}
       <section className="py-24 bg-white">
         <div className="max-w-6xl px-4 mx-auto text-center">
           <h2 className="text-3xl font-bold tracking-tight text-slate-800 sm:text-4xl">
             Our Core Values
           </h2>
-          <p className="max-w-2xl mx-auto mt-4 text-lg text-slate-600">
-            The principles that guide every decision we make.
-          </p>
-          <div className="grid grid-cols-1 gap-12 mt-16 md:grid-cols-3">
+
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="grid grid-cols-1 gap-8 mt-16 md:grid-cols-3"
+          >
             {coreValues.map((value) => (
               <motion.div
                 key={value.title}
                 variants={fadeIn}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.4 }}
-                className="flex flex-col items-center"
+                className="flex flex-col items-center p-8 transition-shadow duration-300 bg-slate-50 hover:shadow-xl rounded-xl border border-slate-200"
               >
-                <div className="flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full">
-                  <value.icon className="w-8 h-8 text-[#3b82f6]" />
+                <div className="flex items-center justify-center w-16 h-16 bg-[#3b82f6] text-white rounded-full">
+                  <value.icon className="w-8 h-8" />
                 </div>
                 <h3 className="mt-6 text-xl font-semibold text-slate-800">
                   {value.title}
                 </h3>
-                <p className="mt-2 text-slate-500">{value.description}</p>
+                <p className="mt-2 text-slate-600">{value.description}</p>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
+      <CallToAction/>
     </div>
   );
 };

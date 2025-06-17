@@ -4,7 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 // --- Inline SVG Icon ---
-// Using a self-contained inline SVG for the arrow icon.
+// An arrow icon to visually suggest forward action.
 const ArrowRightIcon = (props) => (
   <svg
     stroke="currentColor"
@@ -33,16 +33,9 @@ const CallToAction = () => {
     >
       <div className="max-w-4xl px-4 mx-auto text-center">
         {/* Section Heading */}
-        <h2 className="text-3xl font-bold tracking-tight text-[#005B96] sm:text-4xl">
-          Your Health is Our Priority
+        <h2 className="text-3xl font-bold tracking-tight text-[#005B96] md:text-5xl">
+          Connect With Our Team Today
         </h2>
-
-        {/* Sub-heading */}
-        <p className="max-w-2xl mx-auto mt-4 text-lg text-slate-600">
-          Have questions or need expert advice? Our dedicated team of
-          pharmacists in Nairobi is ready to provide you with personalized care
-          and support.
-        </p>
 
         {/* CTA Button */}
         <div className="mt-10">
@@ -50,7 +43,7 @@ const CallToAction = () => {
             href="/contact"
             className="inline-flex items-center justify-center px-8 py-4 font-semibold text-white transition-all duration-300 transform bg-[#3b82f6] rounded-full shadow-lg hover:bg-blue-600 hover:-translate-y-1"
           >
-            <span>Contact Us Today</span>
+            <span>Contact Us</span>
             <ArrowRightIcon className="w-5 h-5 ml-2" />
           </a>
         </div>

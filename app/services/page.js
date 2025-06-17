@@ -2,12 +2,21 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-
-import { FaArrowRight } from "react-icons/fa";
-
+import CallToAction from "../components/CallToAction";
 
 // --- Inline SVG Icons ---
 // Using self-contained inline SVGs for icons to ensure component portability and avoid dependency issues.
+const ArrowRightIcon = (props) => (
+  <svg
+    stroke="currentColor"
+    fill="currentColor"
+    strokeWidth="0"
+    viewBox="0 0 448 512"
+    {...props}
+  >
+    <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"></path>
+  </svg>
+);
 const FaBriefcaseMedical = (props) => (
   <svg
     stroke="currentColor"
@@ -57,58 +66,54 @@ const FaHeartbeat = (props) => (
 const servicesData = [
   {
     icon: FaBriefcaseMedical,
-    title: "Comprehensive Medication Dispensing",
+    title: "Medication Dispensing",
     description:
-      "We offer professional and efficient dispensing of both prescription and over-the-counter medications. Our qualified pharmacists take the time to ensure you fully understand your dosage, administration instructions, and any potential side effects. We are committed to accuracy and patient safety in every prescription we fill.",
+      "Accurate and safe dispensing of prescription and over-the-counter medications.",
     imageUrl:
       "https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=2070&auto=format&fit=crop",
-    imageLeft: true,
   },
   {
     icon: FaNotesMedical,
-    title: "Medication Therapy Management (MTM)",
+    title: "Therapy Management (MTM)",
     description:
-      "For patients with chronic conditions or complex medication regimens, our MTM service provides personalized support. We conduct comprehensive medication reviews to work alongside you and your doctor, aiming to optimize your treatment plan and prevent drug interactions for better health outcomes.",
+      "Personalized support for patients with chronic conditions or complex medication regimens.",
     imageUrl:
       "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?q=80&w=2070&auto=format&fit=crop",
-    imageLeft: false,
   },
   {
     icon: FaUserMd,
-    title: "Health and Wellness Consultations",
+    title: "Wellness Consultations",
     description:
-      "Beyond prescriptions, we are your partners in wellness. Our knowledgeable pharmacists are available for private consultations on a variety of health topics, including the management of minor ailments, advice on nutritional supplements, and guidance on the proper use of medical devices.",
-    imageUrl:
-      "images/1.jpg",
-    imageLeft: true,
+      "Private consultations on a variety of health topics, from minor ailments to nutritional advice.",
+    imageUrl: "images/1.jpg",
   },
   {
     icon: FaHeartbeat,
     title: "Health Screenings",
     description:
-      "Take a proactive step towards managing your health. We offer convenient and accurate on-site health screenings, including blood pressure monitoring and blood glucose testing, to help in the early detection and management of conditions like hypertension and diabetes.",
+      "Convenient on-site screenings, including blood pressure and blood glucose testing.",
     imageUrl:
       "https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?q=80&w=2070&auto=format&fit=crop",
-    imageLeft: false,
   },
 ];
 
 // --- Services Component ---
 const Services = () => {
-  const slideInFromLeft = {
-    hidden: { x: -100, opacity: 0 },
+  const containerVariants = {
+    hidden: { opacity: 0 },
     visible: {
-      x: 0,
       opacity: 1,
-      transition: { duration: 0.7, ease: "easeOut" },
+      transition: { staggerChildren: 0.2, delayChildren: 0.1 },
     },
   };
-  const slideInFromRight = {
-    hidden: { x: 100, opacity: 0 },
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20, scale: 0.95 },
     visible: {
-      x: 0,
       opacity: 1,
-      transition: { duration: 0.7, ease: "easeOut" },
+      y: 0,
+      scale: 1,
+      transition: { duration: 0.5, ease: "easeOut" },
     },
   };
 
@@ -119,101 +124,56 @@ const Services = () => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="py-20 text-center bg-slate-50"
+        className="py-20 text-center bg-[#005B96]"
       >
-        <h1 className="text-4xl font-bold tracking-tight text-[#005B96] sm:text-6xl">
+        <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
           Our Services
         </h1>
       </motion.header>
 
       {/* --- Services Details --- */}
-      <main>
-        {servicesData.map((service, index) => {
-          const {
-            icon: Icon,
-            title,
-            description,
-            imageUrl,
-            imageLeft,
-          } = service;
+      <main className="py-24">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          className="grid grid-cols-1 gap-8 px-4 mx-auto max-w-7xl md:grid-cols-2"
+        >
+          {servicesData.map((service) => {
+            const { icon: Icon, title, description, imageUrl } = service;
 
-          const image = (
-            <motion.div
-              variants={imageLeft ? slideInFromLeft : slideInFromRight}
-              className="w-full h-80 lg:h-[500px] rounded-lg shadow-xl overflow-hidden"
-            >
-              <img
-                src={imageUrl}
-                alt={title}
-                className="object-cover w-full h-full"
-              />
-            </motion.div>
-          );
-
-          const text = (
-            <motion.div
-              variants={imageLeft ? slideInFromRight : slideInFromLeft}
-            >
-              <div className="flex items-center mb-4">
-                <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full">
-                  <Icon className="w-6 h-6 text-[#3b82f6]" />
-                </div>
-                <h2 className="ml-4 text-3xl font-bold tracking-tight text-slate-800 sm:text-4xl">
-                  {title}
-                </h2>
-              </div>
-              <p className="mt-4 text-lg text-slate-600">{description}</p>
-            </motion.div>
-          );
-
-          return (
-            <motion.section
-              key={index}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              className="py-16 overflow-x-hidden"
-            >
-              <div
-                className={`grid items-center max-w-6xl grid-cols-1 gap-12 px-4 mx-auto md:grid-cols-2 md:gap-20 ${
-                  imageLeft ? "" : "md:grid-flow-col-dense"
-                }`}
+            return (
+              <motion.div
+                key={title}
+                variants={itemVariants}
+                whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                className="relative w-full h-96 rounded-xl shadow-lg overflow-hidden group"
               >
-                {imageLeft ? image : text}
-                {imageLeft ? text : image}
-              </div>
-            </motion.section>
-          );
-        })}
+                <img
+                  src={imageUrl}
+                  alt={title}
+                  className="absolute inset-0 object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-110"
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src =
+                      "https://placehold.co/600x400/005b96/FFFFFF?text=Service";
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                <div className="relative flex flex-col justify-end h-full p-6 text-white">
+                  <Icon className="w-10 h-10 mb-4 text-white drop-shadow-lg" />
+                  <h3 className="text-2xl font-bold">{title}</h3>
+                  <p className="mt-2 text-slate-200">{description}</p>
+                </div>
+              </motion.div>
+            );
+          })}
+        </motion.div>
       </main>
 
       {/* --- Call to Action Section --- */}
-      <motion.section
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, amount: 0.5 }}
-        transition={{ duration: 0.8 }}
-        className="py-20 text-center bg-slate-100"
-      >
-        <div className="max-w-4xl px-4 mx-auto">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-800 sm:text-4xl">
-            Have Questions About Our Services?
-          </h2>
-          <p className="max-w-2xl mx-auto mt-4 text-lg text-slate-600">
-            Our friendly team is here to help. Visit us in Nairobi or give us a
-            call.
-          </p>
-          <div className="mt-8">
-            <a
-              href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 font-semibold text-white transition-transform duration-300 bg-[#3b82f6] rounded-full shadow-lg hover:bg-blue-600 hover:scale-105"
-            >
-              Contact Us
-              <FaArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </a>
-          </div>
-        </div>
-      </motion.section>
+      <CallToAction/>
     </div>
   );
 };

@@ -96,12 +96,11 @@ const Contact = () => {
         initial="hidden"
         animate="visible"
         variants={fadeIn}
-        className="py-20 text-center bg-slate-50"
+        className="py-20 text-center bg-[#005B96]"
       >
-        <h1 className="text-4xl font-bold tracking-tight text-[#005B96] sm:text-6xl">
+        <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
           Get In Touch
         </h1>
-       
       </motion.header>
 
       {/* --- Main Content Area --- */}

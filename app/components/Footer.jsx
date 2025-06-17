@@ -164,7 +164,7 @@ const Footer = () => {
         </div>
 
         {/* Social Media and Copyright Section */}
-        <div className="pt-8 mt-12 border-t border-blue-800">
+        <div className="pt-8 mt-12 border-t border-white">
           <div className="flex flex-col items-center justify-between sm:flex-row">
             {/* Social Media Icons */}
             <div className="flex space-x-6">

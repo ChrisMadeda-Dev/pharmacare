@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import CallToAction from "../components/CallToAction";
 
 // --- Inline SVG Icons ---
 // Using self-contained inline SVGs for icons to ensure component portability and avoid dependency issues.
@@ -107,12 +108,11 @@ const Products = () => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="py-20 text-center bg-slate-50"
+        className="py-20 text-center bg-[#005B96]"
       >
-        <h1 className="text-4xl font-bold tracking-tight text-[#005B96] sm:text-6xl">
-          Our Product Range
+        <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
+          Our Products
         </h1>
-       
       </motion.header>
 
       {/* --- Disclaimer Section --- */}
@@ -179,6 +179,7 @@ const Products = () => {
           </motion.div>
         </section>
       </main>
+      <CallToAction/>
     </div>
   );
 };

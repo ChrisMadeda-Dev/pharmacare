@@ -125,7 +125,7 @@ const FeaturedProducts = () => {
             whileHover="hover"
             whileTap="tap"
             onClick={handleViewMoreClick}
-            className="inline-flex items-center justify-center px-8 py-3 font-semibold text-white transition-colors duration-300 bg-[#3b82f6] rounded-full shadow-md hover:bg-[#004a7c] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#005B96]"
+            className="inline-flex items-center justify-center px-8 py-3 font-semibold text-white transition-colors duration-300 bg-[#3b82f6] rounded-full shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#005B96]"
           >
             <span>View More Products</span>
             {/* Using the inline SVG component */}
