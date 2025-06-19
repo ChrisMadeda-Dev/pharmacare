@@ -34,7 +34,7 @@ const CallToAction = () => {
       <div className="max-w-4xl px-4 mx-auto text-center">
         {/* Section Heading */}
         <h2 className="text-3xl font-bold tracking-tight text-[#005B96] md:text-5xl">
-          Connect With Our Team Today
+          Connect With Us
         </h2>
 
         {/* CTA Button */}

@@ -157,9 +157,9 @@ const About = () => {
             <h2 className="text-3xl font-bold tracking-tight text-slate-800 sm:text-4xl">
               Our Story
             </h2>
-            <p className="mt-4 text-lg text-slate-600">
-              Founded with a simple mission—to provide accessible, reliable, and
-              compassionate pharmaceutical care to the Nairobi community—Nairobi
+            <p className="mt-4 text-lg text-slate-600 text-justify ">
+              Founded with a simple mission to provide accessible, reliable, and
+              compassionate pharmaceutical care to the Nairobi community Nairobi
               PharmaCare has grown from a small neighborhood pharmacy into a
               trusted health and wellness partner.
             </p>
@@ -171,7 +171,7 @@ const About = () => {
       <section className="py-24 bg-slate-50">
         <div className="max-w-6xl px-4 mx-auto text-center">
           <h2 className="text-3xl font-bold tracking-tight text-[#005B96] sm:text-4xl">
-            Meet Our Professional Team
+            Meet Our Team
           </h2>
 
           <motion.div
@@ -217,7 +217,7 @@ const About = () => {
       {/* --- Our Core Values Section (Redesigned) --- */}
       <section className="py-24 bg-white">
         <div className="max-w-6xl px-4 mx-auto text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-800 sm:text-4xl">
+          <h2 className="text-3xl font-bold tracking-tight text-[#005B96] sm:text-4xl">
             Our Core Values
           </h2>
 
@@ -246,7 +246,7 @@ const About = () => {
           </motion.div>
         </div>
       </section>
-      <CallToAction/>
+      <CallToAction />
     </div>
   );
 };
