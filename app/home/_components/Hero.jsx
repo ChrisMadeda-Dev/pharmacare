@@ -28,7 +28,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative w-full h-[90dvh] font-sans">
+    <section className="relative w-full h-[90svh] font-sans">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
