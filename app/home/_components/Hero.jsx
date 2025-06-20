@@ -2,7 +2,25 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { FiArrowRight } from "react-icons/fi"; // ✅ Import React Icon
+
+// --- Inline SVG Icon ---
+// Replaced react-icons with a self-contained inline SVG to prevent dependency errors.
+const ArrowRightIcon = (props) => (
+  <svg
+    stroke="currentColor"
+    fill="currentColor"
+    strokeWidth="0"
+    viewBox="0 0 24 24"
+    className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+    height="1em"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="none" d="M0 0h24v24H0z"></path>
+    <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z"></path>
+  </svg>
+);
 
 const Hero = () => {
   const containerVariants = {
@@ -41,10 +59,7 @@ const Hero = () => {
               "https://placehold.co/1920x1080/0f172a/FFFFFF?text=Modern+Pharmacy";
           }}
         />
-        <div
-          className="absolute inset-0 bg-black/37 "
-          aria-hidden="true"
-        ></div>
+        <div className="absolute inset-0 bg-black/53 " aria-hidden="true"></div>
       </div>
 
       {/* Content */}
@@ -57,7 +72,7 @@ const Hero = () => {
         >
           <motion.h1
             variants={itemVariants}
-            className="text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl"
+            className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-7xl"
           >
             Your Trusted Partner in Health and Wellness.
           </motion.h1>
@@ -70,16 +85,19 @@ const Hero = () => {
             quality medications.
           </motion.p>
 
-          {/* CTA Button */}
+          {/* CTA Button as a Link */}
           <motion.div
             variants={itemVariants}
             className="mt-10"
             whileTap={{ scale: 0.95 }}
           >
-            <button className="group flex items-center justify-center whitespace-nowrap px-8 py-4 font-bold text-white transition-all duration-300 ease-in-out bg-[#3b82f6] rounded-full shadow-lg transform hover:-translate-y-1 hover:bg-blue-600 hover:shadow-xl hover:shadow-blue-500/30 focus:outline-none focus:ring-4 focus:ring-blue-400">
+            <a
+              href="/services"
+              className="group flex items-center justify-center whitespace-nowrap px-8 py-4 font-bold text-white transition-all duration-300 ease-in-out bg-[#3b82f6] rounded-full shadow-lg transform hover:-translate-y-1 hover:bg-blue-600 hover:shadow-xl hover:shadow-blue-500/30 focus:outline-none focus:ring-4 focus:ring-blue-400"
+            >
               <span>Explore Our Services</span>
-              <FiArrowRight className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-            </button>
+              <ArrowRightIcon className="ml-2" />
+            </a>
           </motion.div>
         </motion.div>
       </div>
