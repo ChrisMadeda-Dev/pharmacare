@@ -49,7 +49,7 @@ const teamMembers = [
       "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=2070&auto=format&fit=crop",
   },
   {
-    name: "Peter Kariuki",
+    name: "Kate Wanjala",
     title: "Pharmacy Manager",
     bio: "Peter expertly manages our operations, focusing on efficiency and patient satisfaction.",
     imageUrl:
